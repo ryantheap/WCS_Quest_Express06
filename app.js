@@ -17,13 +17,19 @@ app.get("/", welcome);
 const movieHandlers = require("./movieHandlers");
 const userHandlers = require("./userHandlers");
 
+// GET
 app.get("/api/movies", movieHandlers.getMovies);
 app.get("/api/movies/:id", movieHandlers.getMovieById);
 app.get("/api/users", userHandlers.getUsers);
 app.get("/api/users/:id", userHandlers.getUserById);
 
+// POST
 app.post("/api/users", userHandlers.postUsers);
 app.post("/api/movies", movieHandlers.postMovie);
+
+// PUT
+app.put("/api/movies/:id", movieHandlers.updateMovie);
+app.put("/api/users/:id", userHandlers.updateUsers);
 
 app.listen(port, (err) => {
   if (err) {
